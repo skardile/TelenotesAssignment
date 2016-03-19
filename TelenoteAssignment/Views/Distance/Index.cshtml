@@ -1,0 +1,104 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html ng-app="myApp">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" type="text/css" href="~/Style/myStyle.css">
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Content/Angular/Module.js"></script>
+    <script src="~/Content/Angular/Controller.js"></script>
+</head>
+<body ng-cloak>
+    <div ng-controller="myCtrl" id="wrap">
+
+        <ul>
+            <li>@Html.ActionLink("Home", "Index", "Distance")</li>
+            <li>@Html.ActionLink("Technologies", "Technologies", "Distance")</li>
+            <li>@Html.ActionLink("Documentation", "Documentation", "Distance")</li>
+            <li>@Html.ActionLink("Resume", "Resume", "Distance")</li>
+        </ul>
+
+        <br />
+        
+        <br>
+        <form name="myForm">
+        <table>
+            <tr ng-if="model.cList.length > 0">
+                <td><b>X</b></td>
+                <td><b>Y</b></td>
+
+            </tr>
+            <tr ng-repeat="c in model.cList">
+                <td>
+                    {{c.x}}
+                </td>
+                <td>
+                    {{c.y}}
+                </td>
+                <td>
+                    <button type="button" class="button" ng-click="deletePoint(c)">Delete</button>
+                </td>
+            </tr>
+            <tr ng-if="model.cList.length == 0">
+                <td>Please add first location as your starting point</td>
+            </tr>
+            <tr ng-if="states.showForm">
+                <td>
+                    <input type="number" name ="x" class="textbox" placeholder="X coordinate" ng-model="new.Point.x" required>
+                    <p style="color:red" ng-if="myForm.x.$valid == false" color:"red">Please enter X coordinate</p>
+                </td>
+                <td>
+                    <input type="number" name="y" class="textbox" placeholder="Y coordinate" ng-model="new.Point.y" required/>
+                    <p style="color:red" ng-if="myForm.y.$valid == false" color:"red">Please enter Y coordinate</p>
+                </td>
+                <td>
+                    <button type="button" class="button" ng-click="addPoint(myForm.x.$valid,myForm.y.$valid)">Insert</button>
+                    <button type="button" class="button" ng-click="showForm(false)">Cancel</button>
+                </td>
+
+            </tr>
+
+            
+        </table>
+        </form>
+        <br />
+        <button type="button" ng-click="showForm(true)" class="button">Add Location</button>
+        <button type="button" class="button" ng-if="model.cList.length > 0" ng-click="calculateDist()">Calculate</button>
+        <button type="button" class="button" ng-click="clear()">Reset</button>
+        <br />
+        <br />
+        <h4 ng-if="states.showDistance">List of locations sorted based on its distance from the starting point</h4>
+        <table ng-if="states.showDistance">
+            <tr>
+                <td><b>Index</b></td>
+                <td><b>X</b></td>
+                <td><b>Y</b></td>
+                <td><b>Distance</b></td>
+
+            </tr>
+            <tr ng-repeat="c in distanceList" ng-if="$index > 0">
+                <td>
+                    {{$index}}
+                </td>
+                <td>
+                    {{c.x}}
+                </td>
+                <td>
+                    {{c.y}}
+                </td>
+                <td>
+                    {{c.distance}}
+                </td>
+            </tr>
+        </table>
+       
+    </div>
+</body>
+</html>
+

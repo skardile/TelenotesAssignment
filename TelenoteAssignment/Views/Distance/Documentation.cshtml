@@ -1,0 +1,100 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Documentation</title>
+    <link rel="stylesheet" type="text/css" href="~/Style/myStyle.css">
+</head>
+<body>
+    <div id="wrap"> 
+        <ul>
+            <li>@Html.ActionLink("Home", "Index", "Distance")</li>
+            <li>@Html.ActionLink("Technologies", "Technologies", "Distance")</li>
+            <li>@Html.ActionLink("Documentation", "Documentation", "Distance")</li>
+            <li>@Html.ActionLink("Resume", "Resume", "Distance")</li>
+        </ul>
+        <h4>Distance Controller Methods</h4>
+        <table>
+            <tr>
+                <td><b>Method</b></td>
+                <td><b>Description</b></td>
+            </tr>
+            <tr>
+                <td>Index()</td>
+                <td>Returns Index view</td>
+            </tr>
+
+            <tr>
+                <td>getCoordinate()</td>
+                <td>Returns ViewCoordinate object as a json</td>
+            </tr>
+
+            <tr>
+                <td>Add()</td>
+                <td>Returns Coordinate object as a json</td>
+            </tr>
+            <tr>
+                <td>Calculate()</td>
+                <td>Calculates the distance of each location from the start and returns the sorted list as json</td>
+            </tr>
+            <tr>
+                <td>Delete()</td>
+                <td>Deletes the selected location from the location and return updated location list as json</td>
+            </tr>
+
+            <tr>
+                <td>Technologies()</td>
+                <td>Returns Technologies view</td>
+            </tr>
+
+            <tr>
+                <td>Documentation()</td>
+                <td>Returns Documentation view</td>
+            </tr>
+
+            <tr>
+                <td>Resume()</td>
+                <td>Returns Resume view</td>
+            </tr>
+        </table>
+
+        <h4>AngularJS controller menthods</h4>
+        <table>
+            <tr>
+                <td><b>Method Name</b></td>
+                <td><b>Description</b></td>
+            </tr>
+            <tr>
+                <td>showForm()</td>
+                <td>Changes the visibility of the form that adds the location</td>
+            </tr>
+
+            <tr>
+                <td>addPoint()</td>
+                <td>Adds the newly entered location to the location list</td>
+            </tr>
+            <tr>
+                <td>calculateDist()</td>
+                <td>Calls the controller method to calculate the distance and passes model</td>
+            </tr>
+
+            <tr>
+                <td>clear()</td>
+                <td>Resets all the data and form visibility</td>
+            </tr>
+
+            <tr>
+                <td>deletePoint()</td>
+                <td>Deletes the select location and call calculateDist() to update distance list</td>
+            </tr>
+
+        </table>
+    </div>
+</body>
+</html>
