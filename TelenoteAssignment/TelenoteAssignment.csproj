@@ -131,6 +131,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DistanceController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -149,6 +150,7 @@
     <Content Include="Views\Distance\Technologies.cshtml" />
     <Content Include="Views\Distance\Documentation.cshtml" />
     <Content Include="Views\Distance\Resume.cshtml" />
+    <Content Include="Views\Test\test.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
